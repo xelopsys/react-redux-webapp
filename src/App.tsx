@@ -26,10 +26,7 @@ export default function App() {
 						<Route path=":id">
 							<Route path=":name" element={<User />} />
 						</Route>
-						<Route
-							path="register"
-							element={user ? <Navigate to="/" /> : <Register />}
-						/>
+						<Route path="register" element={<Register />} />
 						<Route index element={<Home />} />
 
 						{/* And profile page will be seen only after successfully authentication,
@@ -43,10 +40,7 @@ export default function App() {
 							}
 						/>
 
-						<Route
-							path="login"
-							element={user ? <Navigate to="/" /> : <Login />}
-						/>
+						<Route path="login" element={<Login />} />
 					</Route>
 					<Route path="*" element={<Error />} />
 				</Routes>

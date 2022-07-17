@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../app/features/userSlice";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
-	const naigate = useNavigate();
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -31,7 +31,7 @@ export default function Login() {
 						token: token,
 					})
 				);
-				naigate("/");
+				navigate("/");
 				setError("");
 				setLoading(false);
 			})
@@ -42,7 +42,11 @@ export default function Login() {
 		setEmail("");
 		setPassword("");
 	};
-
+	useEffect(() => {
+		if (localStorage.getItem("token")) {
+			navigate("/");
+		}
+	});
 	return (
 		<div className="w-full h-[100vh] flex flex-col justify-center items-center">
 			{loading && <p>Loading...</p>}
