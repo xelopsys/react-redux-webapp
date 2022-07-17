@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Users/Card";
 import { useFetch } from "../../hooks/useFetch";
 
-export default function Home() {
+export default function Users() {
 	const { data, isLoading, error } = useFetch(
 		`https://reqres.in/api/users?page=1&per_page=10`,
 		{

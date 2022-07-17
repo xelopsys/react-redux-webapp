@@ -5,6 +5,9 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { useSelector } from "react-redux";
 import { setUser } from "./app/features/userSlice";
+import User from "./pages/Users/User/User";
+import Profile from "./pages/Profile/Profile";
+import Users from "./pages/Users/Users";
 
 export default function App() {
 	// const token = useSelector(setUser);
@@ -25,15 +28,24 @@ export default function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/">
-						<Route path="register" element={<Register />} />
 						<Route
-							index
+							path="register"
+							element={user ? <Navigate to="/" /> : <Register />}
+						/>
+						<Route index element={<Home />} />
+						<Route
+							path="profile"
 							element={
 								<RequireAuth>
-									<Home />
+									<Profile />
 								</RequireAuth>
 							}
 						/>
+						<Route path="users" element={<Users />}>
+							<Route path=":id">
+								<Route path=":name" element={<User />} />
+							</Route>
+						</Route>
 						<Route
 							path="login"
 							element={user ? <Navigate to="/" /> : <Login />}

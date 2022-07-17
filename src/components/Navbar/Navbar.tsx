@@ -1,13 +1,25 @@
-import React, { useState } from "react";
-import Logo from "./Logo";
+import React from "react";
+import Logo from "./Logo/Logo";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
-	const [active, setActive] = useState(false);
-
-	const handleClick = (id: number) => {
-		id ? setActive(true) : setActive(false);
-	};
-
+	const pages = [
+		{
+			id: 1,
+			name: "Home",
+			path: "/",
+		},
+		{
+			id: 2,
+			name: "Profile",
+			path: "/profile",
+		},
+		{
+			id: 3,
+			name: "Users",
+			path: "/users",
+		},
+	];
 	return (
 		<nav className="bg-white border-gray-200 px-2 md:px-4 py-2.5 ">
 			<div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -30,31 +42,22 @@ export default function Navbar() {
 				</div>
 				<div className="hidden justify-between items-center w-full text-sm md:flex md:w-auto md:order-1">
 					<ul className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
-						<li>
-							<a
-								href="/"
-								className="block py-2 pr-4 pl-3 text-[#1E6DEB] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#1E6DEB] md:p-0"
-							>
-								Home
-							</a>
-						</li>
-
-						<li>
-							<a
-								href="/"
-								className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#1E6DEB] md:p-0"
-							>
-								Team
-							</a>
-						</li>
-						<li>
-							<a
-								href="/"
-								className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#1E6DEB] md:p-0"
-							>
-								Contact
-							</a>
-						</li>
+						{pages.map((page: any) => (
+							<li key={page.id}>
+								<NavLink
+									to={page.path}
+									className={({ isActive }) =>
+										isActive ? `text-[#1E6DEB]` : `inherit`
+									}
+								>
+									<p
+										className={`block hover:bg-gray-50 md:hover:bg-transparent hover:text-[#1E6DEB] `}
+									>
+										{page.name}
+									</p>
+								</NavLink>
+							</li>
+						))}
 					</ul>
 				</div>
 			</div>
