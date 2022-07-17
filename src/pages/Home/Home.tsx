@@ -22,9 +22,9 @@ export default function Home() {
 	return (
 		<div>
 			<Navbar />
-			<div className="container flex flex-row flex-wrap justify-center items-center mx-auto px-4">
+			<div className="container flex flex-row flex-wrap justify-center items-center mx-auto px-4 mt-16">
 				{data.data.map((user: any) => (
-					<Link to={`/users/${user.id}/${user.first_name}`} key={user.id}>
+					<Link to={`/${user.id}/${user.first_name}`} key={user.id}>
 						<Card {...user} />
 					</Link>
 				))}

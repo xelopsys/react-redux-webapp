@@ -14,11 +14,6 @@ export default function Navbar() {
 			name: "Profile",
 			path: "/profile",
 		},
-		{
-			id: 3,
-			name: "Users",
-			path: "/users",
-		},
 	];
 	return (
 		<nav className="bg-white border-gray-200 px-2 md:px-4 py-2.5 ">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+//Simple hook to fetch data from an API
 export const useFetch = (url: string, options: RequestInit = {}) => {
 	const [data, setData] = useState<any>();
 	const [error, setError] = useState<any>();

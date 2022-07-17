@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 
 export default function User() {
+	const { id } = useParams();
 	const [user, setUser] = useState<any>({});
 	const [isEditing, setIsEditing] = useState(false);
 	const [editedName, setEditedName] = useState("");
@@ -23,8 +25,8 @@ export default function User() {
 	//Updating user data within axios.patch and updating the state with the new data
 	const handleUpdate = async () => {
 		await axios
-			.patch(`https://reqres.in/api/users/5`, {
-				id: 5,
+			.patch(`https://reqres.in/api/users/${id}`, {
+				id: id,
 				first_name: editedName.split(" ")[0],
 				last_name: editedName.split(" ")[1],
 				email: editedEmail,
@@ -52,13 +54,13 @@ export default function User() {
 	//Fetching user data from axios.get with specific id and updating the state with the new data
 	useEffect(() => {
 		const findUser = async () => {
-			await axios.get(`https://reqres.in/api/users/5`).then((res) => {
+			await axios.get(`https://reqres.in/api/users/${id}`).then((res) => {
 				setUser(res.data.data);
 			});
 		};
 
 		findUser();
-	}, []);
+	}, [id]);
 
 	return (
 		<div>

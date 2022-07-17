@@ -4,6 +4,7 @@ interface UserState {
 	user: any;
 }
 
+// The initial state of the user slice of the store. This is the state that will be used when the store is initialized.
 const userSlice = createSlice({
 	name: "user",
 	initialState: {
@@ -13,13 +14,16 @@ const userSlice = createSlice({
 		login: (state, action) => {
 			state.user = action.payload;
 		},
+		register: (state, action) => {
+			state.user = action.payload;
+		},
 		logout: (state) => {
 			state.user = "";
 		},
 	},
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout, register } = userSlice.actions;
 
 export const setUser = (state: any) => state.user.user;
 
