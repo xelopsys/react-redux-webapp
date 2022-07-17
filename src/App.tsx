@@ -26,8 +26,9 @@ export default function App() {
 						<Route path=":id">
 							<Route path=":name" element={<User />} />
 						</Route>
-						<Route path="register" element={<Register />} />
 						<Route index element={<Home />} />
+						<Route path="register" element={<Register />} />
+						<Route path="login" element={<Login />} />
 
 						{/* And profile page will be seen only after successfully authentication,
 						 otherwise you will be asked to authenticate in order to access*/}
@@ -39,8 +40,6 @@ export default function App() {
 								</RequireAuth>
 							}
 						/>
-
-						<Route path="login" element={<Login />} />
 					</Route>
 					<Route path="*" element={<Error />} />
 				</Routes>
