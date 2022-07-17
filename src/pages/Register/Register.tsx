@@ -42,11 +42,11 @@ export default function Login() {
 		setEmail("");
 		setPassword("");
 	};
-	useEffect(() => {
-		if (localStorage.getItem("token")) {
-			navigate("/");
-		}
-	});
+	// useEffect(() => {
+	// 	if (localStorage.getItem("token")) {
+	// 		navigate("/");
+	// 	}
+	// });
 	return (
 		<div className="w-full h-[100vh] flex flex-col justify-center items-center">
 			{loading && <p>Loading...</p>}
