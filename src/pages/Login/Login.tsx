@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../app/features/userSlice";
 import axios from "axios";
@@ -40,11 +40,11 @@ export default function Login() {
 		setPassword("");
 	};
 
-	// useEffect(() => {
-	// 	if (localStorage.getItem("token")) {
-	// 		navigate("/");
-	// 	}
-	// });
+	useEffect(() => {
+		if (localStorage.getItem("token")) {
+			navigate("/");
+		}
+	});
 
 	return (
 		<div className="w-full h-[100vh] flex flex-col justify-center items-center">
