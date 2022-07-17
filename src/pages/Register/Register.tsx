@@ -105,12 +105,19 @@ export default function Login() {
 				>
 					Sign up
 				</button>
+				<div className="w-full h-auto flex flex-row justify-between items-center">
+					<Link to="/">
+						<p className="text-left text-sm w-full my-4 hover:text-blue-500">
+							Home page {"->"}
+						</p>
+					</Link>
+					<Link to="/login">
+						<p className="text-left text-sm w-full my-4 text-blue-600 hover:text-blue-500">
+							Sign in.
+						</p>
+					</Link>
+				</div>
 			</form>
-			<Link to="/">
-				<p className="text-left text-md w-full my-4 hover:text-blue-500">
-					Back to home page {"->"}
-				</p>
-			</Link>
 		</div>
 	);
 }
