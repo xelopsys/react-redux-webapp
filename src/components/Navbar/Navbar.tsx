@@ -24,8 +24,8 @@ export default function Navbar() {
 		dispatch(logout());
 	};
 	return (
-		<nav className="bg-white border-gray-200 px-2 md:px-4 py-2.5 w-full h-auto flex flex-row justify-between items-center">
-			<div className="flex flex-nowrap flex-row justify-between items-center">
+		<nav className="bg-white border border-b-gray-200 shadow-sm px-2 md:px-4 py-2.5 w-full h-auto flex flex-row justify-between md:justify-center lg:justify-center items-center">
+			<div className="flex flex-nowrap flex-row justify-between lg:w-[80vw] md:w-[80vw] items-center mx-auto ml-[8%]">
 				<a href="https://novalabtech.com/" className="flex items-center">
 					<Logo />
 				</a>
@@ -75,9 +75,8 @@ export default function Navbar() {
 					</ul>
 				</div>
 			</div>
-			<div className="lg:hidden md:hidden inline-block order-3">
+			<div className="lg:hidden md:hidden inline-block order-3 ml-[2%]">
 				<button
-					aria-label="Open Menu"
 					title="Open Menu"
 					className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
 					onClick={() => setIsMenuOpen(true)}
