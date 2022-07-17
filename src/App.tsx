@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { setUser } from "./app/features/userSlice";
 import User from "./pages/User/User";
 import Profile from "./pages/Profile/Profile";
+import Error from "./pages/Error/Error";
 
 export default function App() {
 	const user = useSelector(setUser);
@@ -47,6 +48,7 @@ export default function App() {
 							element={user ? <Navigate to="/" /> : <Login />}
 						/>
 					</Route>
+					<Route path="*" element={<Error />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
